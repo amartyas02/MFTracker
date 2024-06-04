@@ -1,57 +1,20 @@
 <!DOCTYPE html>
 <html>
-    <body>
-        <form id="quiz">
-            <div>
-                <label>Q1 - X?</label>
-                <input type="radio" name="g1" onclick="right()" />Yes
-                <input type="radio" name="g1" onclick="wrong()" />No
-            </div>
-            <div>
-                <label>Q2 - Y?</label>
-                <input type="radio" name="g2" onclick="wrong()">Yes
-                <input type="radio" name="g2" onclick="right()">No
-            </div>
-            <div>
-                <label>Q3 - Z?</label>
-                <input type="radio" name="g3" onclick="right()">Yes
-                <input type="radio" name="g3" onclick="wrong()">No
-            </div>
+<body>
 
-            <!-- -->
+<h2>Text input fields</h2>
 
-            <div>
-                <input type="button" value="finish" onclick="finish()">
-            </div>
-        </form>
+<form>
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" value="John"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" value="Doe">
+</form>
 
-        <script>
-            let result = 0;
-            let labelCount = document.querySelectorAll('#quiz label').length;
-            let questionValue = 100 / labelCount;
+<p>Note that the form itself is not visible.</p>
 
-            let right = ()=>{
-                result += questionValue;
-            };
+<p>Also note that the default width of text input fields is 20 characters.</p>
 
-            let wrong = ()=>{
-                result -= questionValue;
-            };
-
-            let finish = ()=>{
-                let labelCount = document.querySelectorAll('#quiz label').length;
-                let checkedButtonsCount = document.querySelectorAll('#quiz :checked').length;
-                if (labelCount !== checkedButtonsCount) {
-                    alert("At least one group is blank.");
-                }
-                if (result < 0) {
-                    result = 0;
-                }
-                if (result > 100) {
-                    result = 100;
-                }
-                return alert(Math.ceil(result));
-            };
-        </script>
-    </body>
+</body>
 </html>
+
